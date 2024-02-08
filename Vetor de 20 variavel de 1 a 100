@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Vetor_com_variavel_de_um_a_cem
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Random random = new Random();
+
+            
+            List<int> numeros = new List<int>();
+
+            
+            for (int i = 0; i < 100; i++)
+            {
+                int numero = random.Next(1, 100);
+                numeros.Add(numero);
+            }
+
+
+            Console.WriteLine("Números  gerados:");
+            foreach (int numero in numeros)
+            {
+                Console.Write(numero + " ");
+            }
+            Console.WriteLine();
+            
+            Console.Clear();
+            
+            Console.Write("Digite a posição do número desejado (entre 1 e 100): ");
+            int posicao = int.Parse(Console.ReadLine());
+            
+            
+            if (posicao < 1 || posicao > 100)
+            {
+                Console.WriteLine("Posição inválida. Por favor, insira uma posição entre 1 e 100.");
+            }
+            else
+            {
+                
+                int numeroNaPosicao = numeros[posicao - 1];
+                Console.WriteLine($"O número na posição {posicao} é: {numeroNaPosicao}");
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
